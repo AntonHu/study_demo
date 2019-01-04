@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+<div id="container">
+    <!-- This element's contents will be replaced with your component. -->
+</div>
+<script type="text/babel">
+    class Hello extends React.Component {
+        constructor(){
+            super()
+            this.state = {
+                enable: false
+            };
+            this.handleClick = this.handleClick.bind(this);
+        }
+        handleClick(event){
+            this.setState({enable:!this.state.enable})
+        }
+        render(){
+            return (
+                <p>
+                    <input type="text" disabled={this.state.enable} />
+                <button onClick={this.handleClick}>改变textbox状态</button>
+                </p>
+            )
+        }
+    }
+    console.log(React)
+    //		var Hello = React.createClass({
+    //		  getInitialState:function(){
+    //		    return {enable:false}
+    //		  },
+    //		  handleClick:function(event){
+    //		    this.setState({enable:!this.state.enable})
+    //		  },
+    //		  render:function(){
+    //		    return (
+    //		      <p>
+    //		        <input type="text" disabled={this.state.enable} />
+    //		        <button onClick={this.handleClick}>改变textbox状态</button>
+    //		      </p>
+    //		    )
+    //		  }
+    //		});
+
+    ReactDOM.render(
+    <Hello/>,
+        document.getElementById('container')
+    );
+</script>
+</body>
+</html>

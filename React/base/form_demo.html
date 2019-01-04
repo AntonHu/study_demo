@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form_demo</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="form_demo"></div>
+    <script type="text/babel">
+        class Demo extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={
+                    user:'',
+                    whether:true,
+                    sex:1
+                }
+                this.submit=this.submit.bind(this)
+                this.handleChange=this.handleChange.bind(this)
+            }
+            handleChange(event){
+                let newState={},name=event.target.name
+                newState[name]=name=='whether'?event.target.checked:event.target.value
+                this.setState(newState)
+                console.log(newState)
+            }
+            submit(e){
+                e.preventDefault()
+                let state = this.state.whether?'是':"不是"
+                let sex = this.state.sex == 1?'帅哥':'美女'
+                alert(this.state.user+state+sex)
+            }
+            render(){
+                return (
+                    <div>
+                        <form onSubmit={this.submit}>
+                            <label htmlFor="user">姓名：</label>
+                            <input type="text" name="user" placeholder="请输入..." onChange={this.handleChange}  value={this.state.user}/>
+                            <br/>
+                            <label htmlFor="whether">是否</label>
+                            <input type="checkbox" name="whether" onChange={this.handleChange} checked={this.state.whether}/>
+                            <br/>
+                            <label htmlFor="sex">性别</label>
+                            <select name="sex" onChange={this.handleChange} value={this.state.sex}>
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                            <input type="submit" value="提交" />
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Demo />,
+            document.getElementById('form_demo')
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title></title>
+</head>
+<body>
+	<input type="text" id="text" name="name"/>
+	<input type="file" id="file" name="file" onchange="ajaxUploadFile()"/>
+</body>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+	function ajaxUploadFile(e) {
+		var obj = window.event||e
+		console.log($("#file"))
+		console.log(obj)
+        var formData = new FormData();
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("POST","/data",true);
+        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        formData.append("name",document.getElementById("text").value);
+        formData.append("file",document.getElementById("file").files[0]);
+        xmlhttp.send(formData);
+        console.log(formData)
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState==4) {
+                if (xmlhttp.status==200) {
+                    console.log("上传成功"+xmlhttp.responseText);
+                }else {
+                    console.log("上传失败"+xmlhttp.responseText);
+                }
+            }
+        }
+    }
+</script>
+
+</html>

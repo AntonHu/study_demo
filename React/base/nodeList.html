@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+<div id="container">
+    <!-- This element's contents will be replaced with your component. -->
+</div>
+<script type="text/babel">
+    //		var Hello = React.createClass({
+    //		  getInitialState:function(){
+    //		    return {enable:false}
+    //		  },
+    //		  handleClick:function(event){
+    //		    this.setState({enable:!this.state.enable})
+    //		  },
+    //		  render:function(){
+    //		    return (
+    //		      <p>
+    //		        <input type="text" disabled={this.state.enable} />
+    //		        <button onClick={this.handleClick}>改变textbox状态</button>
+    //		      </p>
+    //		    )
+    //		  }
+    //		});
+
+    class Test extends React.Component {
+        constructor(){
+            super()
+            this.state = {
+                enable: false,
+                opacity:1
+            };
+            this.handleClick = this.handleClick.bind(this);
+        }
+        handleClick(event){
+            this.setState({enable:!this.state.enable})
+        }
+        componentDidMount(){
+            setInterval(function(){
+                let opacityNum = this.state.opacity
+                opacityNum -= .05
+                if(opacityNum < 0.1){
+                    opacityNum = 1
+                }
+                this.setState({
+                    opacity:opacityNum
+                })
+            }.bind(this),100)
+        }
+        render(){
+            return (
+                <div style={{opacity:this.state.opacity}}>
+                    <p></p>
+                    <input type="text" disabled={this.state.enable} />
+                    <button onClick={this.handleClick}>改变textbox状态</button>
+                    <ol>
+                        {React.Children.map(this.props.children,function(child){
+                            return (
+                                <li>
+                                    {child}
+                                </li>
+                            )
+                        })}
+                    </ol>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <Test>
+            <span>hello</span>
+            <span>anton</span>
+        </Test>,document.getElementById('container')
+    );
+</script>
+</body>
+</html>
