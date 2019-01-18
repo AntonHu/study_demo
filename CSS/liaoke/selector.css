@@ -1,0 +1,98 @@
+/*通用选择器*/
+*{
+	color: #FF0000;
+}
+/*标签选择器*/
+span{
+	color: #0000FF;
+}
+/*类选择器*/
+.greenColor{
+	color: green;
+}
+/*id选择器*/
+#big{
+	font-size: 50px;
+	font-weight: bold;
+}
+/*群组选择器*/
+#big,span{
+	background: #61DAFB;
+}
+caption,th,td{
+	color: #383838;
+	font-size: 14px;
+}
+/*后代选择器*/
+div span{
+	color: #FFFF00;
+}
+/*直接后代选择器*/
+div > span{
+	font-size: 10px;
+}
+/*查找后边一个元素*/
+#main + p{
+	background: #8A2BE2;
+}
+/*兄弟选择器*/
+#main ~ p{
+	font-size: 20px;
+}
+/*属性选择器*/
+div[num="111"]{
+	border: solid;
+}
+/*伪元素 第一元素*/
+div::first-letter{
+	color: #DEB887;
+}
+/*伪元素 第一行*/
+div::first-line{
+	text-decoration: line-through;
+}
+/*伪类 获得焦点*/
+input:focus{
+	height: 50px;
+}
+/*否定选择器*/
+label:not(#not){
+	color: #000;
+}
+
+/*序列选择器*/
+#seq *{
+	color: #000000;
+}
+/*不区分类型
+:first-child 同级第1个
+:last-child 同级倒1
+:nth-child(n) 同级第n个
+:nth-last-child(n) 同级倒n个
+:only-child 同级唯一子元素*/
+#seq li:nth-last-child(2){
+	color: red!important;
+}
+/*区分类型
+:first-of-type 同级中同类第1个
+:last-of-type 同级中同类倒1
+:nth-of-type(n) 同级中同类第n个
+:nth-last-of-type(n) 同级中同类倒n个
+:only-of-type 同级中同类唯一子元素*/
+#seq a:first-of-type{
+	color: green!important;
+}
+/*奇偶性
+:nth-child(odd) 同级中奇数
+:nth-child(even) 同级中偶数
+:nth-of-type(n) 同级中同类第n个
+:nth-child(nx+y) n从0递增，x,y自定义*/
+#seq li:nth-child(odd){
+	color: blue!important;
+}
+
+[class^="icon-"],
+[class*=" icon-"]{
+	font-size: 30px;
+}
+

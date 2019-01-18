@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window</title>
+	</head>
+	<body onload="setInterval('count()',1000)">
+		<div>
+			<p onmouseover="鼠标经过"
+				onmouserout="">来点</p>
+			<button onclick="goOn()">继续</button>
+			<button onclick="closeChild()">关闭弹窗</button>
+		</div>
+		<script>
+			var i=1
+			for(x in document){
+				document.write(x+'<br/>')
+			}
+			
+			function goOn(){
+				if(confirm('继续吗？')){
+				var name = prompt('输入你的名字')
+					alert('你的名字是'+name)
+				}else{
+					
+				}
+			}
+			
+			function count(){
+				console.log(i++)
+			}
+			
+			var w = open('../upload_demo.html','upload','width=300,height=300');
+			
+			function closeChild(){
+				w.close()
+			}
+		</script>
+	</body>
+</html>

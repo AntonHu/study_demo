@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div[name="hidden"]{
+				width: 200px;
+				height: 200px;
+				background: red;
+				visibility: hidden;
+			}
+			#page{
+				background: yellow;
+				font-family: arial,helvetica,sans-serif;
+				font-weight: lighter;
+				font-style: italic; /*斜体*/
+				cursor: pointer;
+				text-transform: capitalize; /*首字母大写*/
+			}
+			div[name="a"] a{
+				text-decoration: none;
+			}
+			div[name="a"] p{
+				text-indent: 100px; /*缩进*/
+			}
+			ul{
+				list-style: upper-roman;
+			}
+			div[name="box"]{
+				background: yellow;
+				width: 150px;
+				height: 150px;
+				margin: 20px;
+				padding: 10px;
+				border: solid 5px;
+				
+				box-sizing: border-box;/*高宽包括边框内边距*/
+			}
+		</style>
+	</head>
+	<body>
+		<div name="hidden">
+			
+		</div>
+		<p id="page">page标签首字母大写</p>
+		
+		<div name="a">
+			<a href="#">百度一下</a>
+			<p>怎么回事</p>
+		</div>
+		<ul>
+			<li>first</li>
+			<li>second</li>
+			<li>third</li>
+			<li>fourth</li>
+		</ul>
+		<div name="box">
+			
+		</div>
+	</body>
+</html>

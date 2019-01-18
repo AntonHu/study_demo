@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function test(e){
+				let obj = window.event||e
+				console.log(obj.target.files)
+				let postFiles = Array.prototype.slice.call(obj.target.files);
+				console.log(postFiles)
+				console.log(URL.createObjectURL(postFiles[0]))
+				document.getElementById('img').src = URL.createObjectURL(postFiles[0])
+			}
+		</script>
+	</head>
+	<body>
+		<input type="file" onchange="test()"/>
+		<img id="img"></img>
+	</body>
+	
+</html>

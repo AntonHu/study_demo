@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html{
+				font-size: 10px;
+			}
+			body{
+				font-size: 16px;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				display: flex;
+				flex-direction: row;
+				background: yellow;
+				height: 250px;
+				width: 250px;
+				
+				/*主轴上对齐方式*/
+				/*justify-content: flex-start;
+				justify-content: flex-end;
+				justify-content: center;
+				justify-content: space-between;
+				justify-content: space-around;*/
+				
+				/*侧轴上对齐方式*/
+				/*align-items: stretch;*/
+				/*align-items: flex-start;*/
+				/*align-items: flex-end;*/
+				align-items: center;
+/*				align-items: baseline;*/
+			}
+			.item{
+				/*height: 5rem;*/
+				width: 5rem;
+				background-color: red;
+				margin: 0.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<div class="item" style="height: 6rem;">item1</div>
+			<div class="item" style="height: 7rem;">item2</div>
+			<div class="item" style="height: 8rem;">item3</div>
+		</div>
+	</body>
+</html>

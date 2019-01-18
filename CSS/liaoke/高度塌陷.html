@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1{
+				border: solid red 1px;
+				/*开启BFC*/
+				/*overflow: hidden;*/
+			}
+			/*伪类清除浮动*/
+			/*#box1:after{
+				content: "";
+				display: block;
+				clear: both;
+			}*/
+			#box2{
+				width:100px;
+				height: 200px;
+				background: blue;
+				
+				float: right;
+			}
+			#box3{
+				height: 100px;
+				background: green;
+			}
+			#box3:after{
+				content: '11';
+			}
+			#box4{
+				height: 400px;
+				width: 400px;
+				background: purple;
+			}
+			/*伪类解决外边距重叠*/
+			/*#box4:before{
+				content: '';
+				display: table;
+			}*/
+			#box5{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				/*子元素和父元素相邻的垂直外边距会发生重叠,子元素的外边距会传递给父元素*/
+				margin-top: 100px;
+			}
+			/*组合解决高度塌陷*/
+			.clearFix:before,
+			.clearFix:after{
+				display: table;
+				content: '';
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1" class="clearFix">
+			<div id="box2"></div>
+			<!--清除浮动-->
+			<!--<div style="clear: both;"></div>-->
+		</div>
+		<div id="box3"></div>
+		<div id="box4" class="clearFix">
+			<!--空table解决外边距重叠问题-->
+			<!--<table></table>-->
+			<div id="box5"></div>
+		</div>
+	</body>
+</html>

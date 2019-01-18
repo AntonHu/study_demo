@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				background-color: red;
+				width: 200px;
+				height: 200px;
+			}
+			/*块级元素居中*/
+			.test1{
+				background: #61DAFB;
+				width: 50px;
+				margin: 0 auto;
+			}
+			/*行内元素居中*/
+			.test1{
+				text-align: center;
+			}
+			/*行内变行内块级*/
+			.test2{
+				float: left;
+				background: yellow;
+			}
+			.test3{
+				float: right;
+				background: bisque;
+				height: 50px;
+				width: 100px;
+				text-align: center;
+			}
+			.test4{
+				background: green;
+				height: 50px;
+				width: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="test1">
+				<span>center<span>
+			</div>
+			<span class="test2">float</span>
+			<span class="test3">set w h</span>
+			<span class="test4">444</span>
+		</div>
+	</body>
+</html>

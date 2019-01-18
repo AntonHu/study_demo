@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			section[type="block"] *{
+				background: yellow;
+			}
+			section[type="inline"] *{
+				background: red;
+				/*border: solid;*/
+				margin: 10px 0;
+			}
+			section[type="inline_block"] *{
+				background: green;
+			}
+			section[type="change"] *{
+				
+			}
+		</style>
+	</head>
+	<body>
+		块级元素---独占一行
+		<section type="block">
+			<div>div</div>
+			
+			<p>p</p>
+			
+			<ul>
+				ul
+				<li>li</li>
+			</ul>
+			
+			<li>li</li>
+		</section>
+		<hr />
+		内联(行内)元素---不独占一行，不可设置高宽边距
+		<section type="inline">
+			<a>a</a>
+			<br />
+			
+			<big>big</big>
+			<br />
+			
+			br:<br />
+			<br />
+			
+			<em>em</em>
+			<br />
+			
+			<label>label</label>
+			<br />
+			
+			<span>span</span>
+			<br />
+			
+			img:<img />
+			<br />
+			
+			<input type="" name="" id="" value="input" />
+			<br />
+			
+			select:<select></select>
+			<br />
+			
+			<textarea>textarea</textarea>
+			<br />
+		</section>
+		<hr />
+		内联(行内)块级元素---不独占一行，可设置高宽边距
+		<section type="inline_block">
+			<input />
+			<select></select>
+			<textarea></textarea>
+		</section>
+		<hr />
+		元素转换
+		<section type="change">
+			
+		</section>
+	</body>
+</html>

@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title></title>
+    <title>upload_demo</title>
 </head>
 <body>
 	<input type="text" id="text" name="name"/>
@@ -23,8 +23,8 @@
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.open("POST","/data",true);
-        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        formData.append("name",document.getElementById("text").value);
+//      xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+//      formData.append("name",document.getElementById("text").value);
         formData.append("file",document.getElementById("file").files[0]);
         xmlhttp.send(formData);
         console.log(formData)

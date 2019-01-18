@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table style="border-collapse: collapse;
+			caption-side: bottom;
+			table-layout: fixed;">
+			<caption>成绩</caption>
+			<tr>
+				<th style="height: 100px;width: 50px;">语文</th>
+				<th class="important">数学</th>
+				<th title="purple">英语</th>
+			</tr>
+			<tr>
+				<td>
+					<span>90</span>
+				</td>
+				<td>
+					<span>99</span>
+				</td>
+				<td>100</td>
+			</tr>
+		</table>
+		<p>hh</p>
+		<p>jj</p>
+		<a href="background.html">go to background.html</a>
+	</body>
+	<style>
+		th,td{
+			border: solid 1px;
+		}
+		*.important{
+			color: red;
+		}
+		*[title]{
+			color: blueviolet;
+		}
+		tr span{
+			color: yellow;
+		}
+		tr > td{
+			color: green;
+		}
+		table + p{
+			color: blue;
+		}
+	</style>
+</html>
