@@ -23,9 +23,9 @@
 				
 				/*主轴上对齐方式*/
 				/*justify-content: flex-start;
-				justify-content: flex-end;
+				justify-content: flex-end;*/
 				justify-content: center;
-				justify-content: space-between;
+				/*justify-content: space-between;
 				justify-content: space-around;*/
 				
 				/*侧轴上对齐方式*/
@@ -33,7 +33,12 @@
 				/*align-items: flex-start;*/
 				/*align-items: flex-end;*/
 				align-items: center;
-/*				align-items: baseline;*/
+				/*align-items: baseline;*/
+				
+				/*指定主轴上是否换行*/
+				flex-wrap: wrap;
+				/*多行对齐
+				align-content：flex-start*/
 			}
 			.item{
 				/*height: 5rem;*/
@@ -41,13 +46,24 @@
 				background-color: red;
 				margin: 0.5rem;
 			}
+			/*单个子项设置对齐方式
+			align-self：center*/
+			#box1>div:nth-child(2){
+				align-self: flex-start;
+			}
+			#box1>div:nth-child(5){
+				align-self: flex-end;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="box1">
-			<div class="item" style="height: 6rem;">item1</div>
-			<div class="item" style="height: 7rem;">item2</div>
-			<div class="item" style="height: 8rem;">item3</div>
+			<div class="item" style="flex-grow: 1; width: 6rem;height: 6rem;">item1</div>
+			<div class="item" style="flex-grow: 3;width: 4rem;height: 3rem;">item2</div>
+			<div class="item" style="flex-grow: 1;width: 7rem;height: 9rem;">item3</div>
+			<div class="item" style="flex-grow: 3;width: 7rem;height: 9rem;">item4</div>
+			<div class="item" style="flex-grow: 1;width: 7rem;height: 9rem;">item5</div>
+			<div class="item" style="flex-grow: 3;width: 7rem;height: 9rem;">item6</div>
 		</div>
 	</body>
 </html>
