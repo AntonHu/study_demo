@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        section{
+            width: 120px;
+            height: 163px;
+            margin: 200px auto;
+            /*background-color: #e00b00;*/
+            position: relative;
+        }
+
+        section div{
+            width: 100%;
+            height: 100%;
+            background:#fff url("images/pk.png") no-repeat -17px -17px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform-origin: left bottom;
+            transition: all .3s ease-in-out;
+        }
+
+        section:hover div:nth-child(1){
+            transform: rotate(15deg);
+        }
+
+        section:hover div:nth-child(2){
+            transform: rotate(30deg);
+        }
+
+        section:hover div:nth-child(3){
+            transform: rotate(45deg);
+        }
+
+        section:hover div:nth-child(4){
+            transform: rotate(60deg);
+        }
+
+        section:hover div:nth-child(5){
+            transform: rotate(75deg);
+        }
+
+        section:hover div:nth-child(6){
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+   <section>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+   </section>
+</body>
+</html>

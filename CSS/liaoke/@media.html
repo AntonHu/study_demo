@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			@media screen and (max-width: 500px) {
+				body{
+					background: red;
+				}
+				#box{
+					font-size: 20px;
+				}
+			}
+			@media screen and (min-width:500px) and (max-width:800px){
+				body{
+					background: green;
+				}
+				#box{
+					font-size: 40px;
+				}
+			}
+			@media screen and (min-width:800px) and (max-width:1000px){
+				body{
+					background: blue;
+				}
+				#box{
+					font-size: 60px;
+				}
+			}
+			@media screen and (min-width:1000px){
+				body{
+					background: purple;
+				}
+				#box{
+					font-size: 80px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--根据屏幕的尺寸改变背景颜色:
+	  宽度 < 500  红色
+	  宽度在 500 - 800  绿色
+	  宽度在 800 - 1000 蓝色
+	  宽度 >1000 紫色
+	  -->
+		<div id="box">我是撩课</div>
+	</body>
+</html>

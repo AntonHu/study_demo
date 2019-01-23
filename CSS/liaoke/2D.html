@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2D</title>
+		<style>
+			html,body{
+				height: 100%;
+				width: 100%;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#yidong{
+				height: 100px;
+				width: 100px;
+				background: red;
+				/*设置过渡效果*/
+				transition:all .5s ease-out;
+			}
+			#yidong:active{
+				transform: translate(100px,200px);
+			}
+			#suofang{
+				width: 100px;
+				height: 100px;
+				background: green;
+				margin: 100px auto;
+				transition: all .5s ease-in-out;
+			}
+			#suofang:active{
+				transform: scaleX(2);
+			}
+			#xuanzhuan{
+				width: 100px;
+				height: 100px;
+				background: blue;
+				margin: 100px auto;
+				transition: all .5s linear;
+				/*transform-origin: left top;*/
+				transform-origin: 50px 0px;
+			}
+			#xuanzhuan:hover{
+				transform: rotate(-45deg);
+			}
+			#qingxie{
+				width: 100px;
+				height: 100px;
+				background: purple;
+				margin: 100px auto;
+				transition: all .5s linear;
+			}
+			#qingxie:hover{
+				/*transform: skewX(180deg);*/
+				transform: skew(-60deg,-30deg);
+			}
+			#toushi{
+				width: 200px;
+				margin: 100px auto;
+				/*perspective: 300px;*/
+			}
+			#toushi img{
+				width: 200px;
+				perspective: 300px; /*透视 屏幕视觉上的距离*/
+				transition: all .5s linear;
+			}
+			#toushi img:hover{
+				/*transform: rotate3d(50,55,100,180deg);*/
+				/*transform: rotateY(360deg);*/
+				transform: translateZ(300px); /*需要父组件透视配合*/
+			}
+			#backToBack{
+				width: 300px;
+				height: 200px;
+				margin: 100px auto;
+				position: relative;
+				perspective:600px;
+				transform-style: preserve-3d;
+			}
+			#backToBack img{
+				width: 100%;
+				height: 450px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all 2s linear;
+			}
+			#backToBack img:first-child{
+				z-index: 1;
+				backface-visibility: hidden;
+			}
+			#backToBack:hover img{
+				transform: rotateY(180deg);
+			}
+			#scroll{
+				width: 900px;
+				height: 100px;
+				vertical-align: middle;
+				/*border: 1px solid orange;*/
+				margin: 0px auto;
+				overflow: hidden;
+			}
+			#scroll:hover ul{
+				animation-play-state: paused;
+			}
+			#scroll ul{
+				width: 200%;
+				height: 100px;
+				list-style: none;
+				animation: moving 5s linear infinite;
+			}
+			#scroll ul li img{
+				float: left;
+				height: 100px;
+				width: 100px;
+			}
+			#scroll ul li img:hover{
+				box-shadow: 0px 0px 20px skyblue;
+			}
+			@keyframes moving{
+				from{transform: translateX(0);}
+				to{transform: translateX(-900px);}
+			}
+			#alignScroll{
+				height: 100%;
+				width: 100%;
+				position: fixed;
+			}
+			#alignScroll > div{
+				margin: 0 auto;
+				width: 200px;
+				height: 100%;
+				/*background: red;*/
+			}
+			#alignScroll > div > div{
+				margin: 0 auto;
+				position: fixed;
+				bottom: 0;
+				perspective: 300px;
+				transform-style: preserve-3d;
+				animation: raising 5s ease-in-out infinite
+			}
+			#alignScroll > div > div:hover{
+				animation-play-state: paused;
+			}
+			.niu{
+				animation: rightNiu .7s ease-in-out infinite
+			}
+			.niu:active{
+				animation-play-state: paused;
+			}
+			@keyframes raising{
+				from{transform: translateY(0);}
+				to{transform: translateY(-800px);}
+			}
+			@keyframes rightNiu{
+				0%{transform: rotate(30deg) rotateY(0deg);}
+				50%{transform: rotate(-30deg) rotateY(180deg);}
+				100%{transform: rotate(30deg) rotateY(360deg);}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="alignScroll">
+			<div>
+				<div>
+					<img class="niu" src="images/鱼.png" alt="" />
+				</div>
+			</div>
+		</div>
+		<nav id="scroll">
+			<ul>
+				<li><img src="images/f01.png" alt="" /></li>
+				<li><img src="images/f02.png" alt="" /></li>
+				<li><img src="images/f03.png" alt="" /></li>
+				<li><img src="images/f04.png" alt="" /></li>
+				<li><img src="images/f05.png" alt="" /></li>
+				<li><img src="images/f06.png" alt="" /></li>
+				<li><img src="images/f07.png" alt="" /></li>
+				<li><img src="images/f08.png" alt="" /></li>
+				<li><img src="images/f09.png" alt="" /></li>
+				
+				<li><img src="images/f01.png" alt="" /></li>
+				<li><img src="images/f02.png" alt="" /></li>
+				<li><img src="images/f03.png" alt="" /></li>
+				<li><img src="images/f04.png" alt="" /></li>
+				<li><img src="images/f05.png" alt="" /></li>
+				<li><img src="images/f06.png" alt="" /></li>
+				<li><img src="images/f07.png" alt="" /></li>
+				<li><img src="images/f08.png" alt="" /></li>
+				<li><img src="images/f09.png" alt="" /></li>
+			</ul>
+		</nav>
+		<div id="yidong">
+			我要移动
+		</div>
+		<div id="suofang">
+			我要缩放
+		</div>
+		<div id="xuanzhuan">
+			我要旋转
+		</div>
+		<div id="qingxie">
+			我要倾斜
+		</div>
+		<div id="toushi">
+			<img src="images/mac.png" alt="" />
+		</div>
+		<div id="backToBack">
+			<img id="test" src="images/zheng.png" alt="" />
+			<img src="images/fan.png" alt="" />
+		</div>
+		<script>
+			var img = new Image()
+			img.src = document.getElementById('test').src
+			
+			console.log(img)
+		</script>
+	</body>
+</html>
