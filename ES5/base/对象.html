@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			try{
+				var obj_con = {
+					name:'andong'
+				}
+				console.log(obj_con.age) //undefined
+				console.log(obj_con.eat()) //"TypeError: undefined is not a function"
+			}catch(err){
+				console.error(err)
+			}
+			
+//			prototype
+			Array.prototype.notLike = 'banana'
+			Array.prototype.eat = function(sth){
+				if(sth == this.notLike){
+					console.log("I don't like eat "+sth)
+				}else{
+					console.log('I like eat '+sth)
+				}
+			}
+			var arr = new Array()
+			arr.eat('apple') //"I like eat apple"
+			arr.eat('banana') //"I don't like eat banana"
+			
+//			constructor
+			console.log(Array.constructor) //"function Function() { [native code] }"
+			console.log(arr.constructor) //"function Array() { [native code] }"	
+			console.log(Array.constructor == arr.constructor) //false
+			
+//			instanceof
+			var arr = []
+			console.log(arr instanceof Array)
+			console.log(arr instanceof Object)
+		</script>
+	</body>
+</html>

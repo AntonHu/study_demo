@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var old = 18
+			function fun1(){
+				var age = old
+				return function(){
+					var obj={
+						age:age
+					}
+					return obj				}
+			}
+			var test = fun1()
+			var x = test()
+			x.age = 16
+			console.log(x.age)
+			
+		</script>
+	</body>
+</html>

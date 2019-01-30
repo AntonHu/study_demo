@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			简单数据类型：Number String Boolean null undefined
+		</div>
+		<div>
+			复杂数据类型：Object Array
+		</div>
+		<script>
+//			Number类型
+			console.log(typeof 10) //number
+			console.log(Number.MAX_VALUE) //获取number对象最大值
+			console.log(Number.MAX_VALUE*2) //Infinity
+			console.log(typeof Infinity) //number
+			console.log(typeof NaN) //number
+			console.log('a'-1) //NaN
+			
+//			Boolean类型
+			console.log(typeof true) //Boolean
+			console.log(Boolean(1)) //true
+			console.log(Boolean(2)) //true
+			console.log(Boolean(0)) //true
+			console.log(Boolean(-1)) //true
+			console.log(Boolean('')) //false
+			console.log(Boolean('   ')) //true
+			console.log(Boolean([])) //true
+			console.log(Boolean({})) //true
+			console.log(Boolean(undefined)) //false
+			console.log(Boolean(null)) //false
+			
+//			转string
+			var change_string=10 
+			console.log(change_string.toString())
+			console.log(change_string+'')
+			
+//			转number
+			console.log(Number('11')) //11
+			console.log(Number('   ')) //0
+			console.log(Number(null)) //0
+			console.log(Number(undefined)) //NaN
+			console.log(Number(false)) //0
+			console.log(Number(true)) //1
+			console.log(Number('a11')) //NaN 遇到无法转成数字的就结束
+			console.log(Number('11a')) //NaN
+			console.log(parseInt('a11')) //NaN
+			console.log(parseInt('11a')) //11
+			console.log(parseFloat('11.22a33.44')) //11.22
+			
+//			console.clear()
+		</script>
+	</body>
+</html>

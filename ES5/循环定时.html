@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr_for=['a','b','c','d','e']
+			
+			function print_com(arr){
+				for(var i=0;i<arr.length;i++){
+					print_set(arr[i],i)
+				}
+				function print_set(item,index){
+					setTimeout(function(){
+						console.log(item)
+					},(index+1)*1000)
+				}
+			}
+			
+			function print_closure(arr){
+				for(var i=0;i<arr.length;i++){
+					(function(index){
+						setTimeout(function(){
+							console.log(arr[index])
+						},(index+1)*1000)
+					})(i)
+				}
+			}
+			
+			function print_es6(arr){
+				for(var i=0;i<arr.length;i++){
+					const item = arr[i] //const,let都可
+					setTimeout(function(){
+						console.log(item)
+					},(i+1)*1000)
+				}
+			}
+			
+			print_es6(arr_for)
+//			print_closure(arr_for)
+		</script>
+	</body>
+</html>

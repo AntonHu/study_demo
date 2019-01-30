@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = 'http://127.0.0.1:8000/test?name=nihao'
+//			编码
+			var encodeStr = encodeURIComponent(str)
+			console.log(encodeStr) //"http%3A%2F%2Flocalhost%3A8000%2Ftest%3Fname%3Dnihao"
+//			解码
+			var decodeStr = decodeURIComponent(encodeStr) //"http://127.0.0.1:8000/test?name=nihao"
+			console.log(decodeStr)
+		</script>
+	</body>
+</html>

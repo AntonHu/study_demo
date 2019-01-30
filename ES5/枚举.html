@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var obj={
+				name:'had',
+				age:18,
+				sex:'man'
+			}
+			console.log(obj.propertyIsEnumerable('sex'))
+//			Object.defineProperty(obj,'sex',{
+//				enumerable:false
+//			})
+			Object.defineProperties(obj,{
+				sex:{
+					enumerable:false
+				}
+			})
+			console.log(obj.propertyIsEnumerable('sex'))
+			console.log('-----------------')
+			for(var key in obj){
+				console.log(key)
+			}
+		</script>
+	</body>
+</html>

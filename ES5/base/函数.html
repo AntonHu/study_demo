@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			声明
+			try{
+				fun2()
+			}catch(err){
+				console.log(err) //TypeError: undefined is not a function
+			}
+			fun1()
+			function fun1(){
+				console.log('fun1') //断点
+			}
+			var fun2 = function(){debugger;console.log('fun2')}
+			var fun3 = new Function("console.log('fun3')")
+			document.onclick=function(){
+				alert('click me')
+			}
+
+//			传参
+			function fun_param1(){
+				//argument 实参
+				for(var i=0;i<arguments.length;i++){
+					console.log(arguments[i])
+				}
+				console.log(fun_param1.length) //形参个数
+			}
+			fun_param1('a','b','c')
+			console.log(fun_param1('a','b','c')) //undefined 没有return
+			
+//			回调
+			function add(num1,num2){
+				return num1+num2
+			}
+			function sub(num1,num2){
+				return num1-num2
+			}
+			function mul(num1,num2){
+				return num1*num2
+			}
+			function divide(num1,num2){
+				return num1/num2
+			}
+			function compute(a,b,func){
+				return func(a,b)
+			}
+			console.log(compute(10,20,add)) //30
+			//-----------------------------------
+			//递归 数列 1 1 2 3 5 8 13 21...
+			function f1(n){
+				if(n===1||n===2) return 1;
+				return f1(n-2)+f1(n-1)
+			}
+			console.log(f1(10)); //55
+			
+//			作用域 
+			(function(){
+				param1 = 1
+			})()
+			console.log(param1); //1
+
+			(function(){
+				var param2 = 2
+			})()
+			try{
+				console.log(param2)
+			}catch(err){
+				console.log(err) //"ReferenceError: param2 is not defined"
+			}
+
+			var param3 = 3;
+			(function(){
+				var param3 = 4
+			})()
+			console.log(param3) //3
+			
+			for(var for_index=0;for_index<10;for_index++){}
+			console.log(for_index) //10
+			
+			param4 = 20
+			console.log(param4) //20
+			
+			try{
+				console.log(param5)
+			}catch(err){
+				console.error(err) //"ReferenceError: param5 is not defined"
+			}
+			param5 = 20
+			
+			console.log(param6) //undefined
+			var param6 = 20; //声明提前
+			
+			(function(){
+				var param7 = param8 = param9 = 10
+			})()
+			try{
+				console.log(param7)
+			}catch(err){
+				console.error(err) //"ReferenceError: param7 is not defined"
+			}
+		</script>
+	</body>
+</html>

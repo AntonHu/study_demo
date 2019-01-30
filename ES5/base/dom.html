@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" name="bigBox">
+			<button	id="btn">anniu</button>
+			<span id="content">
+				<a href="">baidu</a>
+			</span>
+			<p id="pNode">is p</p>
+		</div>
+		<script>
+			var box = document.getElementById('box')
+//			parent.appendChild 后面加节点
+			var dom_append = document.createElement('p')
+			dom_append.innerText = 'dom_append'
+			box.appendChild(dom_append)
+			
+//			parent.insertBefore(newDom,goalDom) 插入节点
+			var dom_insert =  document.createElement('p')
+			var btn = document.getElementById('btn')
+			dom_insert.innerText = 'dom_insert'
+			box.insertBefore(dom_insert,btn)
+
+//			dom.remove()/dom.parentNode.removeChild(dom) 删除节点
+			var pNode = document.getElementById('pNode')
+			pNode.remove()
+			dom_append.parentNode.removeChild(dom_append)
+			
+//			cloneNode(true/false) 深/浅拷贝节点 
+			console.log(box.cloneNode()) //默认false浅拷贝
+			console.log(box.cloneNode(true))
+			
+//			getAttribute setAttribute 节点属性获取/设置
+			console.log(box.getAttribute('name')) //bigBox
+			box.name='smallBox'
+			console.log(box.getAttribute('name')) //bigBox 设置的结果
+			console.log(box.name) //samllBox 运行的结果
+			box.setAttribute('name','smallBox')
+			console.log(box.getAttribute('name')) //smallBox
+			box.test = 'testBox'
+			console.log(box.getAttribute('test')) //null 自定义属性要用setAttribute
+		</script>
+	</body>
+</html>

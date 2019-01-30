@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			声明
+			var arr1 = new Array(5)
+			console.log(arr1) //[,,,,]
+			var arr2 = new Array('a','b','c','d','e')
+			console.log(arr2) //['a','b','c','d','e']
+			var arr3 = []
+			console.log(arr3) //[]
+			var arr4 = [20]
+			console.log(arr4) //[20]
+			
+//			join 数组转字符串 原数组不变
+			var arr_join = ['a','b','c']
+			console.log(arr_join.join('|')) //'a|b|c'
+			console.log(arr_join) //[a,b,c] 原数组不变
+			
+//			push,pop 尾部增删 原数组改变
+			var arr_push = ['a','b','c']
+			console.log(arr_push.push('d','e')) //5 新数组长度
+			console.log(arr_push) //['a','b','c','d','e'] 原数组改变
+			var arr_pop = ['a','b','c']
+			console.log(arr_pop.pop()) //c 被删除的元素
+			console.log(arr_pop) //['a','b'] 原数组改变
+			console.log([].pop()) //undefined
+			
+//			shift,unshift 头部增删 原数组改变
+			var arr_shift = ['a','b','c']
+			console.log(arr_shift.shift()) //a 被删除的元素
+			console.log(arr_shift) //['b','c'] 原数组改变
+			console.log([].shift()) //undefined
+			var arr_unshift = ['a','b','c']
+			console.log(arr_unshift.unshift('d','e')) //5 新数组长度
+			console.log(arr_unshift) //['d','e','a','b','c'] 原数组改变
+			
+//			reverse 反向 原数组改变
+			var arr_reverse=['a','b','c']
+			console.log(arr_reverse.reverse()) //['c','b','a']
+			console.log(arr_reverse) //['c','b','a'] 原数组改变
+			
+//			concat 合并 原数组不变
+			var arr_concat = ['a','b','c']
+			console.log(arr_concat.concat('d',['e'])) //['a','b','c','d','e'] 传递的数组被拆解成元素
+			console.log(arr_concat) //[a,b,c] 原数组不变
+			
+//			indexOf,lastIndexOf 前->后/后->前 找元素位置
+			var arr_indexOf = ['a','b','c','d']
+			console.log(arr_indexOf.indexOf('a')) //0
+			console.log(arr_indexOf.lastIndexOf('a')) //0
+			console.log(arr_indexOf.indexOf('a',2)) //-1 从位置2往后找
+			console.log(arr_indexOf.lastIndexOf('a',2)) //0 从位置2往前找
+			
+//			sort 排序 改变原数组
+			var arr_sort = [10,100,1,-1,1000]
+			console.log(arr_sort.sort()) //[-1,1,10,100,1000]
+			console.log(arr_sort) //[-1,1,10,100,1000] 原数组改变
+			console.log(arr_sort.sort(function(x,y){
+				return y-x
+			})) //[1000,100,10,1,-1] 降序
+			
+//			slice 截取数组
+			var arr_slice = ['a','b','c','d','e']
+			console.log(arr_slice.slice(1,4)) //['b','c','d']
+			console.log(arr_slice) //['a','b','c','d','e'] 原数组不变
+			
+//			splice 删除或添加
+			var arr_splice1 = ['a','b','c','d','e']
+			console.log(arr_splice1.splice(3)) //['d','e']
+			console.log(arr_splice1) //['a','b','c'] 原数组改变
+			var arr_splice2 = ['a','b','c','d','e']
+			console.log(arr_splice2.splice(3,1)) //['d']
+			console.log(arr_splice2)// ['a','b','c','e']
+			var arr_splice3 = ['a','b','c','d','e']
+			console.log(arr_splice3.splice(3,0,'f')) //[]
+			console.log(arr_splice3) //['a','b','c','f','d','e']
+			console.log(arr_splice3.splice(0)) //['a','b','c','f','d','e']
+			console.log(arr_splice3) //[]
+			
+//			forEach
+			var arr_forEach = [10,100,1000]
+			console.log(arr_forEach.forEach(function(value){
+				return value*value
+			})) //undefined
+			console.log(arr_forEach) //[10,100,1000]
+			
+//			map
+			var arr_map = [10,100,1000]
+			console.log(arr_map.map(function(value){
+				return value*value
+			})) //[100,10000,1000000]
+			console.log(arr_map) //[10,100,1000]
+			
+//			every
+			var arr_every = [10,100,1000]
+			console.log(arr_every.every(function(value){
+				return value>10
+			})) //false
+			console.log(arr_every) //[10,100,1000]
+		</script>
+	</body>
+</html>

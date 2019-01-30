@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="upload" type="file" />
+		<script>
+			var string1 = 'abcdef'
+			console.log(string1.charAt(2)) //'c'
+			console.log(string1.charCodeAt(2)) //99 ASCII码
+			
+			var str2 = 'hello'
+			console.log(str2.toUpperCase()) //"HELLO"
+			console.log(str2.toLowerCase()) //"hello"
+			
+			document.getElementById('upload').onchange=function(){
+				var path = this.value
+				var type = path.substr(path.indexOf('.'))
+				console.log(type)
+				if(type == '.jpg' || type == '.png' || type == '.gif' || type == '.jpeg' ){
+					
+				}
+				console.log(path) //不变
+			}
+		</script>
+	</body>
+</html>

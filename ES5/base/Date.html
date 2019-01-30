@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="target">距离2019-02-05 00:00:00还有</div>
+		<span id="count"></span><span>秒</span>
+		<button id="interval">启动定时器</button>
+		<button id="clear">关闭定时器</button>
+		<script>
+			var timer = null
+			var date = new Date()
+			console.log(date)
+			
+			console.log(date.getDate()) //日
+			console.log(date.getDay()) //星期几
+			console.log(date.getMonth()+1) //月
+			console.log(date.getFullYear()) //年
+			
+			console.log(date)
+			
+			var interval = document.getElementById('interval')
+			interval.onclick = function(){
+				timer = setInterval(function(){
+					console.log(date.getTime())
+				},1000)
+			}
+			var clear = document.getElementById('clear')
+			clear.onclick = function(){
+				clearInterval(timer)
+			}
+			
+			var countTimer = setInterval(function(){
+				var currentDate = new Date()
+				var currentTime = currentDate.getTime()
+				var target = document.getElementById('target').innerText.substr(2).slice(0,-2)
+				document.getElementById('count').innerText = parseInt((new Date(target).getTime()-currentTime)/1000)
+			},1000)
+		</script>
+	</body>
+</html>

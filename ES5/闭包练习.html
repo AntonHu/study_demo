@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function fun(n, o) {
+			  console.log(o);
+			  return {
+			    fun: function(m) {
+			      return fun(m, n);
+			    }
+			  };
+			}
+			
+			var a = fun(0); //console.log(undefined);{fun:function(m){return fun(m,0)}
+			a.fun(1); //console.log(0);{fun:function(m){m,1}}
+			a.fun(2); //console.log(0);{fun:function(m){m,2}}
+			a.fun(3); //console.log(0);{fun:function(m){m,3}}
+			
+			var b = fun(0)
+			  .fun(1)
+			  .fun(2)
+			  .fun(3);//console.log(undefined);console.log(0);console.log(1);console.log(2){fun:function(m){m,3}}
+			
+			var c = fun(0).fun(1); //console.log(undefined);console.log(0);{fun:function(m){m,1}}
+			c.fun(2); //console.log(1);{fun:function(m){m,2}}
+			c.fun(3); //console.log(1);{fun:function(m){m,3}}
+		</script>
+	</body>
+</html>

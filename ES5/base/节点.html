@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<button	class="btn">anniu</button>
+			<span id="content">
+				<a href="">baidu</a>
+			</span>
+			<p>is p</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		parentNode 父节点
+		var a = document.getElementsByTagName('a')[0]
+		var pN = a.parentNode
+		pN.style.background = '#ff0000'
+		
+//		Sibling/ElementSibling 兄弟节点
+		var span = document.getElementsByTagName('span')[0]
+		var next = span.nextElementSibling || span.nextSibling //IE6,7,8
+		console.log(next)
+		var previous = span.previousElementSibling || span.previousSibling
+		console.log(previous)
+		
+//		firstElementChild/firstChild 第一个子节点 IE9+包括空文档和换行节点
+
+//		lastElementChild/lastChild 最后一个子节点
+
+//		childNodes 所有子节点;children 所有元素节点
+		var box = document.getElementById('box')
+		var allNode = box.childNodes
+		var allChildren = box.children
+		console.log(allChildren)
+		console.log(allNode)
+		var allNode_type1=[]
+		for(var i=0;i<allNode.length;i++){
+			if(allNode[i].nodeType == 1){ //1 元素节点;2 属性节点;3 文本节点
+				allNode_type1.push(allNode[i])
+			}
+		}
+		console.log(allNode_type1)
+	</script>
+</html>

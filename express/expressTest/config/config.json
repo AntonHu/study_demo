@@ -1,0 +1,7 @@
+{
+    "host":"10.1.11.3",
+    "port":5432,
+    "user":"pglims",
+    "password":"pglims2123",
+    "database":"repulab"
+}
