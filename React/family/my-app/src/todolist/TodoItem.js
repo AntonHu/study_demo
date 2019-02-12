@@ -9,12 +9,18 @@ class TodoItem extends Component{
         const {deleteItem,i} = this.props
         deleteItem(i)
     }
+    componentWillReceiveProps(){
+        console.log('TodoItem receive props')
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        return nextProps.content !== this.props.content
+    }
     render(){
-        const { content } = this.props
+        const { content,test } = this.props
         return (
             <li 
                 onClick={this.handlerClick} 
-                dangerouslySetInnerHTML={{__html:content}}>
+                dangerouslySetInnerHTML={{__html:`${test}-${content}`}}>
             </li>
         )
     }

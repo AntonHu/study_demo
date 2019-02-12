@@ -1,13 +1,16 @@
 import React, { Component, Fragment } from 'react'
 import './style.css'
 import TodoItem from './TodoItem.js'
+import PropTypes from 'prop-types'
+import Test from './Test'
+import axios from 'axios'
 
 class TodoList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             inputValue: '初始value',
-            list: ['a', 'b', 'c']
+            list: []
         }
         this.printInput = this.printInput.bind(this)
         this.submit = this.submit.bind(this)
@@ -25,7 +28,9 @@ class TodoList extends Component {
         this.setState((prevState)=>({
             list:[...prevState.list, prevState.inputValue],
             inputValue
-        }))
+        }),()=>{
+            console.log(this.ul.querySelectorAll('li').length)
+        })
     }
     deleteIndex(index) {
         if (window.confirm(`确定要删除第${index}条数据？`)) {
@@ -48,9 +53,21 @@ class TodoList extends Component {
             )
         })
     }
+    componentDidMount(){
+        axios.get('/api/todolist').then((res)=>{
+            this.setState(()=>{
+                return {
+                    list:[...res.data]
+                }
+            })
+        }).catch((err)=>{
+            console.info(err)
+        })
+    }
     render() {
         return (
             <Fragment>
+                <Test content={this.state.inputValue}/>
                 <div>
                     <label htmlFor="insertArea">输入内容</label>
                     <input
@@ -62,13 +79,27 @@ class TodoList extends Component {
                     <button onClick={this.submit}>提交</button>
                 </div>
                 <div>
-                    <ul>
+                    <ul ref={(ul)=>this.ul = ul}>
                         {this.getTodoItem()}
                     </ul>
                 </div>
             </Fragment>
         )
     }
+}
+
+TodoItem.propTypes = {
+    test: PropTypes.string.isRequired,
+    content: PropTypes.string,
+    deleteItem: PropTypes.func,
+    i: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ])
+}
+
+TodoItem.defaultProps = {
+    test: 'hello'
 }
 
 export default TodoList
