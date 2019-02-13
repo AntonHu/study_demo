@@ -1,38 +1,38 @@
-import React,{ Component,Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import './style.css'
-import { CSSTransition,TransitionGroup } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 class Donghua extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
-            show:true,
-            list:[]
+        this.state = {
+            show: true,
+            list: []
         }
         this.handlerShow = this.handlerShow.bind(this)
     }
-    handlerShow(){
-        this.setState((prevState)=>{
+    handlerShow() {
+        this.setState((prevState) => {
             return {
-                show:prevState.show?false:true,
-                list:[...prevState.list,'title']
+                show: prevState.show ? false : true,
+                list: [...prevState.list, 'title']
             }
         })
     }
-    render(){
+    render() {
         return (
             <Fragment>
                 <TransitionGroup>
                     {
-                        this.state.list.map((value,index)=>{
+                        this.state.list.map((value, index) => {
                             return (
                                 <CSSTransition
                                     key={`li${index}`}
                                     timeout={1000}
                                     classNames='fade'
                                     unmountOnExit
-                                    onEntered={(el)=>{
-                                        el.style.color='blue'
+                                    onEntered={(el) => {
+                                        el.style.color = 'blue'
                                     }}
                                     appear={true}
                                 >
@@ -47,8 +47,8 @@ class Donghua extends Component {
                     timeout={1000}
                     classNames='fade'
                     unmountOnExit
-                    onEntered={(el)=>{
-                        el.style.color='blue'
+                    onEntered={(el) => {
+                        el.style.color = 'blue'
                     }}
                     appear={true}
                 >
