@@ -29,6 +29,11 @@ class Header extends Component{
         })
     }
     render(){
+        const {
+            focused,
+            handleInputFocus,
+            handleInputBlur
+        } = this.props
         return (
             <HeaderWrapper>
                 <Logo />
@@ -39,22 +44,22 @@ class Header extends Component{
                     <NavItem className='right'>Aa</NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.props.focused}
+                            in={focused}
                             timeout={200}
                             classNames='slide'
                         >
                             <NavSearch
-                                className={this.props.focused ? 'focused' : ''}
-                                onFocus={this.handleInputFocus}
-                                onBlur={this.handleInputBlur}
+                                className={focused ? 'focused' : ''}
+                                onFocus={handleInputFocus}
+                                onBlur={handleInputBlur}
                             ></NavSearch>
                         </CSSTransition>
                         <CSSTransition
-                            in={this.props.focused}
+                            in={focused}
                             timeout={200}
                             classNames='slide'
                         >
-                            <i className={this.props.focused ? 'focused iconfont' : 'iconfont'}>&#xe60b;</i>
+                            <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe60b;</i>
                         </CSSTransition>
                     </SearchWrapper>
                 </Nav>
