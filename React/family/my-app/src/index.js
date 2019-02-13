@@ -1,6 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoList from './antd/TodoList';
+import TodoList from './reactRedux/TodoList';
+import { Provider } from 'react-redux'
+import store from './store'
 // import Donghua from './donghua/Donghua'
 
-ReactDOM.render(<TodoList />, document.getElementById('root'));
+const App = (
+    <Provider store={store}>
+        <TodoList />
+    </Provider>
+);
+
+ReactDOM.render(App, document.getElementById('root'));

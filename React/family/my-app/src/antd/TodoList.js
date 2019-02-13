@@ -2,6 +2,7 @@ import React,{ Component } from 'react'
 import 'antd/dist/antd.css'
 import TodoListUI from './TodoListUI'
 import store from '../store'
+import connect from 'react-redux'
 import { 
     getInputChangeAction,
     getAddItemAction,
@@ -58,4 +59,4 @@ class TodoList extends Component{
     }
 }
 
-export default TodoList
+export default connect(null,null)(TodoList)
