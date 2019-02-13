@@ -26,7 +26,6 @@ const TodoListUI = (props)=>{
                 bordered
                 dataSource={props.list}
                 renderItem={(item,index) => {
-                    console.log(index); 
                     return (
                     <List.Item 
                         onClick={()=>{
