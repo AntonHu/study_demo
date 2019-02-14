@@ -1,17 +1,14 @@
-const defaultState = {
-    focused:false
-};
+import { combineReducers } from 'redux-immutable';
+import { reducer as headerReducer } from '../common/header/store';
+import { reducer as homeReducer } from '../pages/home/store';
+import { reducer as detailReducer } from '../pages/detail/store';
+import { reducer as loginReducer } from '../pages/login/store';
 
-export default (state = defaultState,action)=>{
-    if(action.type === 'input_focus'){
-        const newState = JSON.parse(JSON.stringify(state))
-        newState.focused = true
-        return newState
-    }
-    if(action.type === 'input_blur'){
-        const newState = JSON.parse(JSON.stringify(state))
-        newState.focused = false
-        return newState
-    }
-    return state
-}
+const reducer = combineReducers({
+	header: headerReducer,
+	home: homeReducer,
+	detail: detailReducer,
+	login: loginReducer
+});
+
+export default reducer;
