@@ -8,10 +8,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput} from 'react-native';
-import HelloInput from './src/components/HelloInput'
-import PropsDemo from './src/components/Props'
-import ButtonCom from './src/components/ButtonCom'
+import {Platform, StyleSheet, Text, View} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,16 +17,11 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-
-
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <HelloInput name="hello wolrd!!!"/>
-        <ButtonCom />
-        <PropsDemo></PropsDemo>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
