@@ -1,0 +1,33 @@
+body,html {
+    margin: 0;
+    padding: 0;
+}
+#main{
+    margin: 0 10%;
+    color: #666
+}
+.header {
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.header select{
+    height: 30px;
+    border: solid 1px #ccc;
+}
+.content {
+    text-align: center;
+    color: #666
+}
+.content tr {
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #ccc;
+}
+.content tr th{
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+.content tr td{
+    border: 1px solid #ccc;
+}

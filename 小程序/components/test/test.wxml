@@ -1,0 +1,4 @@
+<!--pages/test.wxml-->
+<view>
+  <text>{{ testContent }}</text>
+</view>
