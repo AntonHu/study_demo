@@ -8,9 +8,9 @@
 		<img src="./test.png" alt="加载test.png" height="200" width="200" usemap="#map"/>
 		<iframe src="./list.html"></iframe>
 		<map name="map">
-			<area shape="rect" coords="0,0,50,50" title="左上前往text"
+			<area shape="rect" coords="0,0,10,10" title="左上前往text"
 				href="./text.html"/ alt="text.html">
-			<area shape="circle" coords="175,175,25" title="右下前往list"
+			<area shape="circle" coords="190,190,200,200" title="右下前往list"
 				href="./list.html" alt="list.html"/>
 		</map>
 	</body>
