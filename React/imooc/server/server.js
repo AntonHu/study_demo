@@ -59,6 +59,10 @@ app.get('/data',function(req,res){
     // })
 })
 
+app.get('/dele',(req,res) => {
+    res.json({'id':'要删除的id'})
+})
+
 app.listen(9093,function(){
     console.log('Node app start at port 9093')
 })

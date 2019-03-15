@@ -1,6 +1,7 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8"/>
         <title>登录页面</title>
     </head>
     <body>
@@ -8,5 +9,30 @@
             <h1>登录页</h1>
         </div>
         <img src="./showImg"/>
+        <br/>
+        收到参数：email是{email}
+        <br/>
+        pwd是{pwd}
+        <form action="./login" method="post">
+            <table>
+                <tr>
+                    <td>email:</td>
+                    <td>
+                        <input type="text" name="email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>密码:</td>
+                    <td>
+                        <input type="password" name="pwd"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" >
+                        <input type="submit" value="登录"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </body>
 </html>

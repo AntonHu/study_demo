@@ -1,9 +1,10 @@
 var fs = require('fs')
 module.exports = {
     readFile: (path,callback) => {
-        fs.readFile(path, (err, data) => {
+        fs.readFile(path, (err, data) => { //异步
             if(err) {
                 console.log(err);
+                callback("文件不存在")
             }else {
                 console.log(data.toString());
                 callback(data)
