@@ -26,7 +26,7 @@ class Dashboard extends Component {
         const app = (
             <div>
                 <h1>你好！{this.props.user}！</h1>
-                <Button onClick={this.props.logout}>注销</Button>
+                <Button  onClick={this.props.logout}>注销</Button>
                 <ul>
                     <li>
                         <Link to={`${match.url}/`}>one</Link>
