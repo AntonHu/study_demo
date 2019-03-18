@@ -1,16 +1,13 @@
 import React,{ Component } from 'react'
+import { Button } from 'antd-mobile'
 import { addAsync, sub } from './store/action'
 import { connect } from 'react-redux'
 
-
-const mapStatetoProps = (state) => ({
-    num: state
-})
+const mapStatetoProps = state => ({num: state.app})
 
 const actionCreators = {addAsync, sub}
 
 @connect(mapStatetoProps, actionCreators)
-
 class App extends Component {
     constructor(props){
         super(props)
@@ -21,11 +18,12 @@ class App extends Component {
             addAsync,
             sub
         } = this.props
+        console.log(this.props)
         return (
             <div>
                 <h1>{num}</h1>
-                <button onClick={addAsync}>加</button>
-                <button onClick={sub}>减</button>
+                <Button onClick={addAsync}>加</Button>
+                <Button onClick={sub}>减</Button>
             </div>
         )
     }
