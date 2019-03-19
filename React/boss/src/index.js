@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import Login from './container/login/login'
 import Register from './container/register/register'
 import AuthRoute from './components/authroute/authroute'
+import BossInfo from './container/bossInfo/bossInfo'
 import './index.css'
 
 function Boss(){
@@ -18,9 +19,12 @@ ReactDom.render(
         <BrowserRouter>
             <div>
                 <AuthRoute></AuthRoute>
-                <Route path='/boss' component={Boss}></Route>
-                <Route path='/login' component={Login}></Route>
-                <Route path='/register' component={Register}></Route>
+                <Switch>
+                    <Route path='/bossinfo' component={BossInfo}></Route>
+                    <Route path='/boss' component={Boss}></Route>
+                    <Route path='/login' component={Login}></Route>
+                    <Route path='/register' component={Register}></Route>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>,
