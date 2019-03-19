@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import reducer from './reducer'
-import 'antd-mobile/dist/antd-mobile.css';
 
 const reduxDevtools = window.devToolsExtension?window.devToolsExtension():compose;
 const store = createStore(
