@@ -84,44 +84,16 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				transition: all 2s linear;
+				transition: all .5s ease-in-out;
 			}
 			#backToBack img:first-child{
 				z-index: 1;
 				backface-visibility: hidden;
 			}
-			#backToBack:hover img{
+			.active img{
 				transform: rotateY(180deg);
 			}
-			#scroll{
-				width: 900px;
-				height: 100px;
-				vertical-align: middle;
-				/*border: 1px solid orange;*/
-				margin: 0px auto;
-				overflow: hidden;
-			}
-			#scroll:hover ul{
-				animation-play-state: paused;
-			}
-			#scroll ul{
-				width: 200%;
-				height: 100px;
-				list-style: none;
-				animation: moving 5s linear infinite;
-			}
-			#scroll ul li img{
-				float: left;
-				height: 100px;
-				width: 100px;
-			}
-			#scroll ul li img:hover{
-				box-shadow: 0px 0px 20px skyblue;
-			}
-			@keyframes moving{
-				from{transform: translateX(0);}
-				to{transform: translateX(-900px);}
-			}
+			
 			#alignScroll{
 				height: 100%;
 				width: 100%;
@@ -159,40 +131,73 @@
 				50%{transform: rotate(-30deg) rotateY(180deg);}
 				100%{transform: rotate(30deg) rotateY(360deg);}
 			}
+			
+			
+			
+			#scroll{
+				width: 100px;
+				height: 100px;
+				vertical-align: middle;
+				/*border: 1px solid orange;*/
+				margin: 0px auto;
+				overflow: hidden;
+			}
+			#scroll:hover ul{
+				animation-play-state: paused;
+			}
+			#scroll ul{
+				width: 400%;
+				height: 100px;
+				list-style: none;
+				animation: moving 2s linear infinite;
+				animation-fill-mode: forwards;
+			}
+			#scroll ul li img{
+				float: left;
+				height: 100px;
+				width: 100px;
+			}
+			#scroll ul li img:hover{
+				box-shadow: 0px 0px 20px skyblue;
+			}
+			@keyframes moving{
+				from{transform: translateX(0);}
+				to{transform: translateX(-300px);}
+			}
 		</style>
 	</head>
 	<body>
-		<div id="alignScroll">
+		<!-- <div id="alignScroll">
 			<div>
 				<div>
 					<img class="niu" src="images/鱼.png" alt="" />
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<nav id="scroll">
 			<ul>
 				<li><img src="images/f01.png" alt="" /></li>
 				<li><img src="images/f02.png" alt="" /></li>
-				<li><img src="images/f03.png" alt="" /></li>
+				<!-- <li><img src="images/f03.png" alt="" /></li>
 				<li><img src="images/f04.png" alt="" /></li>
 				<li><img src="images/f05.png" alt="" /></li>
 				<li><img src="images/f06.png" alt="" /></li>
 				<li><img src="images/f07.png" alt="" /></li>
-				<li><img src="images/f08.png" alt="" /></li>
+				<li><img src="images/f08.png" alt="" /></li> -->
 				<li><img src="images/f09.png" alt="" /></li>
 				
 				<li><img src="images/f01.png" alt="" /></li>
-				<li><img src="images/f02.png" alt="" /></li>
+				<!-- <li><img src="images/f02.png" alt="" /></li>
 				<li><img src="images/f03.png" alt="" /></li>
 				<li><img src="images/f04.png" alt="" /></li>
 				<li><img src="images/f05.png" alt="" /></li>
 				<li><img src="images/f06.png" alt="" /></li>
 				<li><img src="images/f07.png" alt="" /></li>
 				<li><img src="images/f08.png" alt="" /></li>
-				<li><img src="images/f09.png" alt="" /></li>
+				<li><img src="images/f09.png" alt="" /></li> -->
 			</ul>
 		</nav>
-		<div id="yidong">
+		<!-- <div id="yidong">
 			我要移动
 		</div>
 		<div id="suofang">
@@ -207,15 +212,24 @@
 		<div id="toushi">
 			<img src="images/mac.png" alt="" />
 		</div>
-		<div id="backToBack">
+		<div id="backToBack" class="fanpai" onclick="changeCard()">
 			<img id="test" src="images/zheng.png" alt="" />
 			<img src="images/fan.png" alt="" />
 		</div>
 		<script>
-			var img = new Image()
-			img.src = document.getElementById('test').src
+			function changeCard() {
+				const doc = document.getElementById('backToBack');
+				const index = doc.className.indexOf('active');
+				if ( index < 0 ) {
+					doc.className += ' active';
+					console.log(doc.className);
+				} else {
+					doc.className = doc.className.slice(0, index-1);
+					console.log(doc.className);
+				}
+			}
 			
-			console.log(img)
-		</script>
+			
+		</script> -->
 	</body>
 </html>
