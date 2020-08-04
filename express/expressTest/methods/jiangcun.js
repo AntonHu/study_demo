@@ -3,7 +3,7 @@
  * @作者: Anton
  * @Date: 2020-08-04 18:51:18
  * @LastEditors: Anton
- * @LastEditTime: 2020-08-04 19:56:23
+ * @LastEditTime: 2020-08-04 19:59:41
  */
 const request = require('request');
 // body解析
@@ -44,7 +44,13 @@ const jiangcun = () => {
                 console.log(error);
             } else if (response.statusCode == 200) {
                 if (data.code === 0 && data.data) {
-                    geActivityTime(data.data);
+                    
+                    userInfo.name = data.data.name;
+                    userInfo.idNo = data.data.idNo;
+                    userInfo.mobile = data.data.mobile;
+                    userInfo.accountId = data.data.id;
+
+                    geActivityTime();
                 }
             } else {
                 console.log('------获取用户信息接口非200------');
@@ -118,9 +124,10 @@ const jiangcun = () => {
     const submit = () => {
         const options = {
             headers: {},
-            url: API_LIST.GET_RECORD + userInfo.idNo,
-            method: 'GET',
-            json: true
+            url: API_LIST.SUBMIT_REVERSE,
+            method: 'POST',
+            json: true,
+            body: JSON.stringify(userInfo)
         };
         const cb = (error, response, data) => {
             if (!response) {
