@@ -3,10 +3,8 @@
  * @作者: Anton
  * @Date: 2020-08-04 18:51:18
  * @LastEditors: Anton
- * @LastEditTime: 2020-08-04 19:54:50
+ * @LastEditTime: 2020-08-04 19:56:23
  */
-const express = require('express');
-const app = express();
 const request = require('request');
 // body解析
 // const bodyParser = require('body-parser');
