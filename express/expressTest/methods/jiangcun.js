@@ -3,7 +3,7 @@
  * @作者: Anton
  * @Date: 2020-08-04 18:51:18
  * @LastEditors: Anton
- * @LastEditTime: 2020-08-04 19:59:41
+ * @LastEditTime: 2020-08-04 20:03:34
  */
 const request = require('request');
 // body解析
@@ -49,6 +49,9 @@ const jiangcun = () => {
                     userInfo.idNo = data.data.idNo;
                     userInfo.mobile = data.data.mobile;
                     userInfo.accountId = data.data.id;
+
+                    console.log('------获取用户信息成功------');
+                    console.log(userInfo);
 
                     geActivityTime();
                 }
