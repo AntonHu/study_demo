@@ -3,10 +3,11 @@
  * @作者: Anton
  * @Date: 2019-10-02 19:19:58
  * @LastEditors: Anton
- * @LastEditTime: 2020-08-04 19:56:01
+ * @LastEditTime: 2020-08-05 10:50:37
  */ 
 const express = require('express');
 const app = express();
+const request = require('request');
 
 // const XianCao = require('./methods/xiancao');
 const JiangCun = require('./methods/jiangcun');
